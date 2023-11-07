@@ -34,12 +34,12 @@ FETCH:
     MOVE.W  EPC,D0          ; movemos el contador a D0
     MULU.W  #2,D0           ; multiplicamos x2 D0
     
-    LEA.L   EMEM,A0         ; cogemos la dirección de la memoria
-    ADD.W   D0,A0           ; sumamos D0 (PC) a A0 para tener la dirección de
-                            ; la instrucción a ejecutar
+    LEA.L   EMEM,A0         ; cogemos la direcciÃ³n de la memoria
+    ADD.W   D0,A0           ; sumamos D0 (PC) a A0 para tener la direcciÃ³n de
+                            ; la instrucciÃ³n a ejecutar
     ADD.W   #1,EPC          ; sumamos 1 al EPC para ya apuntar a la siguiente
-    MOVE.W  (A0),EIR        ; movemos la instrucción al eregistro
-                            ; de instrucción    
+    MOVE.W  (A0),EIR        ; movemos la instrucciÃ³n al eregistro
+                            ; de instrucciÃ³n    
         
     ;--- FFETCH: FIN FETCH
     
@@ -53,12 +53,12 @@ FETCH:
     	    ; ESCRIBID VUESTRO CODIGO AQUI
       
     MOVE.W  #0,-(A7)        ; preparamos la pila
-    MOVE.W  (EIR),-(A7)     ; metemos la instrucción en la pila
+    MOVE.W  (EIR),-(A7)     ; metemos la instrucciÃ³n en la pila
     
-    JSR     DECOD           ; saltamos a la subrutina de librería
-                            ; de decodificación                           
+    JSR     DECOD           ; saltamos a la subrutina de librerÃ­a
+                            ; de decodificaciÃ³n                           
     ADDQ.W  #2,A7           ; sumamos 2 a A7
-    MOVE.W  (A7)+,D1        ; en D1 tenemos la instrucción a ejecutar
+    MOVE.W  (A7)+,D1        ; en D1 tenemos la instrucciÃ³n a ejecutar
   	    
         
     ;--- FBRDECOD: FIN SALTO A DECOD
@@ -99,16 +99,16 @@ JMPLIST:
 	; ESCRIBID EN CADA ETIQUETA LA FASE DE EJECUCION DE CADA INSTRUCCION
 	
 ECOPY:      
-    MOVE.W  EIR,D5              ; Movemos la dirección de Rb en el registro de 
+    MOVE.W  EIR,D5              ; Movemos la direcciÃ³n de Rb en el registro de 
     JSR     Bring_B             ; direcciones A2
     MOVE.W  A5,A2
     
-    MOVE.W  EIR,D5              ; Movemos la dirección de Rc en el registro de
+    MOVE.W  EIR,D5              ; Movemos la direcciÃ³n de Rc en el registro de
                                 ; direcciones A1
     JSR     Bring_C
     MOVE.W  A5,A1
     
-    MOVE.W  (A2),(A1)           ; Ponemos la dirección que esta en Rb en Rc
+    MOVE.W  (A2),(A1)           ; Ponemos la direcciÃ³n que esta en Rb en Rc
     
     MOVE.W  SR,D2               ; Hacemos una copia de los flags, guardamos los flags N y Z 
     CLR.W   D4                  ; y limpiamos D4
@@ -117,17 +117,17 @@ ECOPY:
     BRA FETCH
 
 EADD:      
-    MOVE.W  EIR,D5              ; Ponemos la dirección de Ra en el registro de direcciones A1
+    MOVE.W  EIR,D5              ; Ponemos la direcciÃ³n de Ra en el registro de direcciones A1
     JSR     Bring_A
 
     MOVE.W  A5,A2
     
-    MOVE.W  EIR,D5              ;  Ponemos la dirección de Rb en el registro de direcciones A2
+    MOVE.W  EIR,D5              ;  Ponemos la direcciÃ³n de Rb en el registro de direcciones A2
 
     JSR     Bring_B
     MOVE.W  A5,A1
     
-    MOVE.W  EIR,D5              ;  Ponemos la dirección de Rc en el registro de direcciones A3
+    MOVE.W  EIR,D5              ;  Ponemos la direcciÃ³n de Rc en el registro de direcciones A3
 
     JSR     Bring_C
     MOVE.W  A5,A3
@@ -140,21 +140,21 @@ EADD:
     CLR.W   D4                     
     JSR     FLAGS_CNZ
     
-    MOVE.W  D6,(A3)             ; Por último guardamos el resultado la suma en Rc
+    MOVE.W  D6,(A3)             ; Por Ãºltimo guardamos el resultado la suma en Rc
     
     BRA FETCH
 
 ESUB:       
-    MOVE.W  EIR,D5              ; Guardamos la dirección de Ra en A1
+    MOVE.W  EIR,D5              ; Guardamos la direcciÃ³n de Ra en A1
     JSR     Bring_A
 
     MOVE.W  A5,A2
     
-    MOVE.W  EIR,D5              ; Guardamos la dirección de Rb en A2
+    MOVE.W  EIR,D5              ; Guardamos la direcciÃ³n de Rb en A2
     JSR     Bring_B
     MOVE.W  A5,A1
     
-    MOVE.W  EIR,D5              ; Guardamos la dirección de Rc en A3
+    MOVE.W  EIR,D5              ; Guardamos la direcciÃ³n de Rc en A3
     JSR     Bring_C
     MOVE.W  A5,A3
     
@@ -178,7 +178,7 @@ ELSH:
 
     MOVE.W  D5,D6
     
-    MOVE.W  EIR,D5              ; Guardamos la dirección de Rb en A2, y
+    MOVE.W  EIR,D5              ; Guardamos la direcciÃ³n de Rb en A2, y
     JSR     Bring_B                  ; copiamos su contenido en D7
     MOVE.W  A5,A2
     MOVE.W  (A2),D7
@@ -211,7 +211,7 @@ EADQ:
     JSR     Bring_K
     MOVE.W  D5,D6
     
-    MOVE.W  EIR,D5              ; Guardamos la dirección de Rc en A1
+    MOVE.W  EIR,D5              ; Guardamos la direcciÃ³n de Rc en A1
     JSR     Bring_C
     MOVE.W  A5,A1
     
@@ -230,7 +230,7 @@ ESET:
     JSR     Bring_K
     MOVE.W  D5,D6
     
-    MOVE.W  EIR,D5              ; Guardamos la dirección de Rc en A1
+    MOVE.W  EIR,D5              ; Guardamos la direcciÃ³n de Rc en A1
     JSR     Bring_C
     MOVE.W  A5,A1
     
@@ -243,21 +243,21 @@ ESET:
     BRA FETCH
 
 EOR:      
-    MOVE.W  EIR,D5              ; Definimos la ubicación de Ra en A1
+    MOVE.W  EIR,D5              ; Definimos la ubicaciÃ³n de Ra en A1
     JSR     Bring_A
 
     MOVE.W  A5,A1
     
-    MOVE.W  EIR,D5              ; Configuramos la dirección de Rb en A2
+    MOVE.W  EIR,D5              ; Configuramos la direcciÃ³n de Rb en A2
     JSR     Bring_B
     MOVE.W  A5,A2
     
-    MOVE.W  EIR,D5              ; Establecemos la dirección de Rc en A3
+    MOVE.W  EIR,D5              ; Establecemos la direcciÃ³n de Rc en A3
     JSR     Bring_C
     MOVE.W  A5,A3
     
     MOVE.W  (A1),D6             ; Asignamos el contenido de Ra a D6, el de
-    MOVE.W  (A2),D7             ; Rb a D7, y ejecutamos la operación OR
+    MOVE.W  (A2),D7             ; Rb a D7, y ejecutamos la operaciÃ³n OR
     OR.W   D6,D7
              
     MOVE.W  SR,D2               ; Realizamos un respaldo de los flags, limpiamos D4
@@ -270,10 +270,10 @@ EOR:
     
 ENOT:
     MOVE.W  (A1),D6             ; Tomamos el contenido de Rc y lo colocamos en D6
-                                ; Luego, ejecutamos la operación NOT
+                                ; Luego, ejecutamos la operaciÃ³n NOT
     NOT.W    D6
 
-    MOVE.W  SR,D2               ; Creamos un respaldo de los flags, y después vaciamos D4
+    MOVE.W  SR,D2               ; Creamos un respaldo de los flags, y despuÃ©s vaciamos D4
     CLR.W   D4                  ; Ahora, establecemos los flags N y Z
     JSR     FLAGS_NZ
 
@@ -332,19 +332,19 @@ EEXIT:
 
 ELOIP:      
 
-    MOVE.W  EIR,D5              ; Guardamos la dirección de Rb en A1, copiamos
-    JSR     Bring_B              ; el contenido de la dirección de este en
+    MOVE.W  EIR,D5              ; Guardamos la direcciÃ³n de Rb en A1, copiamos
+    JSR     Bring_B              ; el contenido de la direcciÃ³n de este en
     MOVE.W  A5,A2               ; A2, y lo multiplicamos por 2
     MOVE.W  (A2),A3
     ADD.W   A3,A3
     
-    MOVE.W  EIR,D5              ; Guardamos la dirección de Rc en A1
+    MOVE.W  EIR,D5              ; Guardamos la direcciÃ³n de Rc en A1
     JSR     Bring_C
     MOVE.W  A5,A1
     
     MOVE.W  EMEM(A3),(A1)        ; Guardamos en ET0 el contenido apuntado por A2
     MOVE.W  SR,D2               ; Hacemos una copia de los flags e                                  
-                                ; Incrementamos en 1 la dirección que guarda Rb
+                                ; Incrementamos en 1 la direcciÃ³n que guarda Rb
     CLR.W   D4                          ; Limpiamos D4 y guardamos los flags N y Z
     JSR     FLAGS_NZ
 
@@ -373,19 +373,19 @@ ELOA:
 
 
 ESTIP: 
-    MOVE.W  EIR,D5              ; Guardamos la dirección de Rb en A1, copiamos
-    JSR     Bring_B              ; el contenido de la dirección de este en
+    MOVE.W  EIR,D5              ; Guardamos la direcciÃ³n de Rb en A1, copiamos
+    JSR     Bring_B              ; el contenido de la direcciÃ³n de este en
     MOVE.W  A5,A2               ; A2, y lo multiplicamos por 2
     MOVE.W  (A2),A3
     ADD.W   A3,A3
     
-    MOVE.W  EIR,D5              ; Guardamos la dirección de Rc en A1
+    MOVE.W  EIR,D5              ; Guardamos la direcciÃ³n de Rc en A1
     JSR     Bring_C
     MOVE.W  A5,A1
     
     MOVE.W  (A1),EMEM(A3)        ; Guardamos en Xb el contenido apuntado por A2
     MOVE.W  SR,D2               ; Hacemos una copia de los flags e                                  
-                                ; Incrementamos en 1 la dirección que guarda Rb
+                                ; Incrementamos en 1 la direcciÃ³n que guarda Rb
     CLR.W   D4                          ; Limpiamos D4 y guardamos los flags N y Z
     JSR     FLAGS_NZ
 
@@ -431,26 +431,26 @@ Bring_B:
 
 Bring_C:
 
-    AND.W #$0007,D5         ; con una máscara, cogemos el valor de A/B/C
-    JSR REGISTROS             ; y miramos a qué registro se corresponde
+    AND.W #$0007,D5         ; con una mÃ¡scara, cogemos el valor de A/B/C
+    JSR REGISTROS             ; y miramos a quÃ© registro se corresponde
     
     RTS
    
 Bring_I:
-    AND.W #0001,D5          ; con una máscara, cogemos el valor de I
+    AND.W #0001,D5          ; con una mÃ¡scara, cogemos el valor de I
     
     RTS
     
 Bring_M:
-    LSR.L #3,D5             ; movemos D5 1 posición a la derecha
-    AND.W #$00FF,D5         ; con una máscara, cogemos el valor de M (mmmmmmmm)
+    LSR.L #3,D5             ; movemos D5 1 posiciÃ³n a la derecha
+    AND.W #$00FF,D5         ; con una mÃ¡scara, cogemos el valor de M (mmmmmmmm)
     
     RTS
    
 Bring_K:
     LSR.L #3,D5             ; movemos D5 3 posiciones a la derecha
-    AND.W #$00FF,D5         ; con una máscara, cogemos el valor de K (kkkkkkkk)
-    EXT.W D5                ; hacemos una extensión de signo (byte -> word)
+    AND.W #$00FF,D5         ; con una mÃ¡scara, cogemos el valor de K (kkkkkkkk)
+    EXT.W D5                ; hacemos una extensiÃ³n de signo (byte -> word)
     
     RTS
 
@@ -489,7 +489,7 @@ REGISTROS:
          JMP REGISTRO_X7    ; si es 1, el registro es X7
     
 
-  ; A partir de aquí guardamos las direcciones y salimos de la subrutina 
+  ; A partir de aquÃ­ guardamos las direcciones y salimos de la subrutina 
    REGISTRO_T0:
     LEA.L ET0,A5
     RTS
@@ -561,18 +561,18 @@ DECOD:
 
     MOVE.W D0, -(A7)         ; guardamos D0 en la pila
     MOVE.W D1, -(A7)         ; guardamos D1 en la pila
-    MOVE.W 8(A7), D0         ; pasamos la instrucción a D0
+    MOVE.W 8(A7), D0         ; pasamos la instrucciÃ³n a D0
     
-    MOVE.W #0, D1            ; ponemos a 0 D1 (número de instrucción)
-    BTST.L #15, D0           ; miramos el 16º bit de la instrucción
+    MOVE.W #0, D1            ; ponemos a 0 D1 (nÃºmero de instrucciÃ³n)
+    BTST.L #15, D0           ; miramos el 16Âº bit de la instrucciÃ³n
     BNE DECOD_1XXXX          ; si no es 0, saltamos para mirar la instr. 1XXX
 
     ;0XXXX:
-    BTST.L #14, D0           ; miramos el 15º bit de la instrucción
+    BTST.L #14, D0           ; miramos el 15Âº bit de la instrucciÃ³n
     BNE DECOD_01XXX          ; si no es 0, saltamos para mirar la instr. 01XX
 
         ;00XXX:
-        BTST.L #13,D0            ; miramos el 14º bit de la instrucción
+        BTST.L #13,D0            ; miramos el 14Âº bit de la instrucciÃ³n
         BNE DECOD_001XX          ; si no es 0, saltamos para mirar la instr. 001X   
 
             ;000XX:
@@ -658,7 +658,7 @@ DECOD:
     ADDQ.W #1, D1
     
     FINAL:
-    MOVE.W D1,10(A7)        ; guardamos el número de instrucción en la pila
+    MOVE.W D1,10(A7)        ; guardamos el nÃºmero de instrucciÃ³n en la pila
     MOVE.W (A7)+,D1         ; sacamos D1 de la pila
     MOVE.W (A7)+,D0         ; sacamos D0 de la pila
 	
@@ -666,13 +666,3 @@ DECOD:
     
     ;--- FDECOD: FIN DECOD
     END    START
-
-
-
-
-
-
-*~Font name~Courier New~
-*~Font size~10~
-*~Tab type~1~
-*~Tab size~4~
