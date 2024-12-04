@@ -1,9 +1,9 @@
 cff-version: 1.2.0
 authors:
-- family-names: "Llufriu"
-  given-names: "Daniel"
 - family-names: "Joan"
   given-names: "Harpo"
+- family-names: "Llufriu"
+  given-names: "Daniel"
 title: "Pràctica final d'Estructura de Computadors I"
 date-released: "2023"
-url: "https://github.com/helveticka/algorismia_II"
+url: "https://github.com/helveticka/estructura-computadors_I"
