@@ -1,5 +1,5 @@
 ## Authors
-Developed by [Harpo Joan](https://github.com/helveticka) & Daniel Llufriu
+Developed by [Harpo Joan](https://github.com/helveticka) & [Daniel Llufriu](https://github.com/danillr6)
 
 ## License
 This repository is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.
