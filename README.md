@@ -16,6 +16,8 @@ For the second part of the subject, we've developed the game Minesweeper, implem
 
 ## Authors
 Developed by [Harpo Joan](https://github.com/helveticka), [Daniel Llufriu](https://github.com/danillr6) & [Daniel Giralt](https://github.com/dgiraltt)
+- EC_I: *by D. Llufriu & H. Joan*
+- EC_II: *by D.Giralt & H. Joan*
 
 ## License
 This repository is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.
