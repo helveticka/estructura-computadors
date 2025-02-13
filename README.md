@@ -1,4 +1,4 @@
-# Estructura dels Computadors
+# Estructura dels Computadors - 21706/21715
 
 ## Content
 Here, in this repository there are two directorys, where I store the final project of each part of the subject, I and II. 
